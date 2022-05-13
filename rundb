@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Stop on errors
+# set -Eeuo pipefail
+# UNCOMMENT LINE 4 IF YOU WANT TO STOP ON ERRORS
+
+# delete current sqlite file, if it exists
+if [ -e eecs.sqlite3 ]; then
+    rm -f eecs.sqlite3
+fi
+
+sqlite3 eecs.sqlite3 < schema.sql
+sqlite3 eecs.sqlite3 < data.sql
